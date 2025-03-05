@@ -1,2 +1,2 @@
-# passwordle
-Forgot your password? Guess it with Passwordle!
+# Passwordle
+### Forgot your password? Guess it with Passwordle! 
