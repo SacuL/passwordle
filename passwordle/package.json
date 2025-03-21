@@ -28,7 +28,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "clean": "rimraf build",
-    "copy": "copyfiles -u 1 \"build/**/*\" public",
+    "copy": "copyfiles -u 1 \"build/**/*\" ../",
     "build:public": "npm run clean && npm run build && npm run copy"
   },
   "eslintConfig": {
