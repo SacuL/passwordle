@@ -5,16 +5,17 @@ import { GameBoard } from "./GameBoard";
 import { Keyboard } from "./Keyboard";
 import { Button } from "../common/Button";
 import { useGameState } from "../../hooks/useGameState";
-import { selectRandomPassword } from "../../utils/gameLogic";
+import { selectRandomPassword, PasswordWithTip } from "../../utils/gameLogic";
 
 interface PasswordleGameProps {
   onBack: () => void;
 }
 
 export const PasswordleGame: React.FC<PasswordleGameProps> = ({ onBack }) => {
-  const [targetPassword, setTargetPassword] = useState(selectRandomPassword());
+  const [targetPassword, setTargetPassword] = useState<PasswordWithTip>(selectRandomPassword());
   const [showConfetti, setShowConfetti] = useState(false);
-  const { guesses, currentGuess, usedLetters, gameStatus, handleKeyPress, resetGame } = useGameState(targetPassword);
+  const { guesses, currentGuess, usedLetters, gameStatus, showHint, handleKeyPress, resetGame, toggleHint } =
+    useGameState(targetPassword);
 
   useEffect(() => {
     if (gameStatus === "won") {
@@ -98,8 +99,39 @@ export const PasswordleGame: React.FC<PasswordleGameProps> = ({ onBack }) => {
         <p className="mt-2 text-center text-gray-600">Guess YOUR password in {6 - guesses.length} tries</p>
       </div>
 
-      <div className="mb-8">
-        <GameBoard guesses={guesses} currentGuess={currentGuess} targetPassword={targetPassword} maxGuesses={6} />
+      <div className="mb-4">
+        <GameBoard
+          guesses={guesses}
+          currentGuess={currentGuess}
+          targetPassword={targetPassword.password}
+          maxGuesses={6}
+        />
+      </div>
+
+      <div className="h-12 mb-2 flex flex-col items-center justify-center">
+        {gameStatus === "playing" && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center"
+          >
+            <Button
+              onClick={toggleHint}
+              className="bg-[#2196F3] hover:bg-[#1976D2] text-white px-4 py-1.5 rounded-lg text-sm"
+            >
+              {showHint ? "Hide Hint" : "Get a Hint"}
+            </Button>
+            {showHint && (
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-1 text-center text-gray-700 italic text-sm"
+              >
+                {targetPassword.tip}
+              </motion.div>
+            )}
+          </motion.div>
+        )}
       </div>
 
       <div className="w-full max-w-2xl">
@@ -108,13 +140,11 @@ export const PasswordleGame: React.FC<PasswordleGameProps> = ({ onBack }) => {
 
       {gameStatus !== "playing" && (
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mt-8 text-center">
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
-            {gameStatus === "won" ? "Congratulations!" : "Game Over"}
-          </h2>
-          <p className="mb-4 text-gray-600">
-            {gameStatus === "won" ? "You've successfully guessed the password!" : `The password was: ${targetPassword}`}
+          <p className="text-xl font-semibold mb-4">
+            {gameStatus === "won" ? "Congratulations! You won!" : "Game Over! The password was:"}
           </p>
-          <Button onClick={handlePlayAgain} variant="primary">
+          <p className="text-2xl font-bold mb-4">{targetPassword.password}</p>
+          <Button onClick={handlePlayAgain} className="bg-[#2196F3] hover:bg-[#1976D2] text-white px-6 py-3 rounded-lg">
             Play Again
           </Button>
         </motion.div>

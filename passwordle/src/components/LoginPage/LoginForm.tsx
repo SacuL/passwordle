@@ -11,7 +11,7 @@ interface LoginFormProps {
 export const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [errors] = useState<{ email?: string; password?: string }>({});
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [showError, setShowError] = useState(false);

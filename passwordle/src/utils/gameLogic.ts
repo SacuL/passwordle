@@ -1,8 +1,16 @@
-import { commonPasswords } from "../data/commonPasswords";
+import { commonPasswordsWithTips } from "../data/commonPasswords";
 
-export const selectRandomPassword = (): string => {
-  const randomIndex = Math.floor(Math.random() * commonPasswords.length);
-  return commonPasswords[randomIndex].toUpperCase();
+export interface PasswordWithTip {
+  password: string;
+  tip: string;
+}
+
+export const selectRandomPassword = (): PasswordWithTip => {
+  const randomIndex = Math.floor(Math.random() * commonPasswordsWithTips.length);
+  return {
+    ...commonPasswordsWithTips[randomIndex],
+    password: commonPasswordsWithTips[randomIndex].password.toUpperCase(),
+  };
 };
 
 export const validateGuess = (guess: string, targetPassword: string): boolean => {
