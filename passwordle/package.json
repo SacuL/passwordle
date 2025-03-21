@@ -1,7 +1,7 @@
 {
   "name": "passwordle",
   "version": "0.1.0",
-  "homepage": "https://yourusername.github.io/passwordle",
+  "homepage": "https://sacul.github.io/passwordle",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -26,7 +26,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "clean": "rimraf build",
+    "copy": "copyfiles -u 1 \"build/**/*\" public",
+    "build:public": "npm run clean && npm run build && npm run copy"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +51,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
+    "copyfiles": "^2.4.1",
     "gh-pages": "^6.1.1",
-    "postcss": "^8.4.35"
+    "postcss": "^8.4.35",
+    "rimraf": "^6.0.1"
   }
 }
