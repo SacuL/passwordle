@@ -1,4 +1,4 @@
-const commonPasswords = [
+export const commonPasswords = [
   "123456",
   "password",
   "12345678",

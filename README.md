@@ -1,7 +1,9 @@
-# Passwordle
+## Passwordle
 
-### Forgot your password? Guess it with Passwordle!
+Tired of boring password recovery?
 
-## Disclaimer
+Try Passwordle - Where guessing your password is actually fun!
 
-This project was created using chatGPT as a test of its capabilities.
+### Disclaimer
+
+This project was created using AI.
