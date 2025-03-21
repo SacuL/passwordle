@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/passwordle/static/css/main.7e4f511c.css",
-    "main.js": "/passwordle/static/js/main.5546084b.js",
+    "main.css": "/passwordle/static/css/main.3c4e4bf6.css",
+    "main.js": "/passwordle/static/js/main.6ee1eed4.js",
     "static/js/453.3da96d74.chunk.js": "/passwordle/static/js/453.3da96d74.chunk.js",
     "index.html": "/passwordle/index.html",
-    "main.7e4f511c.css.map": "/passwordle/static/css/main.7e4f511c.css.map",
-    "main.5546084b.js.map": "/passwordle/static/js/main.5546084b.js.map",
+    "main.3c4e4bf6.css.map": "/passwordle/static/css/main.3c4e4bf6.css.map",
+    "main.6ee1eed4.js.map": "/passwordle/static/js/main.6ee1eed4.js.map",
     "453.3da96d74.chunk.js.map": "/passwordle/static/js/453.3da96d74.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e4f511c.css",
-    "static/js/main.5546084b.js"
+    "static/css/main.3c4e4bf6.css",
+    "static/js/main.6ee1eed4.js"
   ]
 }
