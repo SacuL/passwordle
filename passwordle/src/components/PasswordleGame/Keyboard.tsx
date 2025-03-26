@@ -29,16 +29,16 @@ export const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress, usedLetters }) =
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1 sm:gap-2 px-1 sm:px-0">
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center gap-1.5">
+        <div key={rowIndex} className="flex justify-center gap-0.5 sm:gap-1.5">
           {row.map((key, keyIndex) => (
             <button
               key={keyIndex}
               onClick={() => onKeyPress(key)}
-              className={`h-14 rounded-md px-4 text-sm font-bold uppercase transition-colors ${getKeyStyle(key)} ${
-                key === "ENTER" ? "w-20" : key === "BACKSPACE" ? "w-20" : "w-12"
-              }`}
+              className={`h-10 sm:h-14 rounded-md px-2 sm:px-4 text-xs sm:text-sm font-bold uppercase transition-colors ${getKeyStyle(
+                key
+              )} ${key === "ENTER" ? "w-12 sm:w-20" : key === "BACKSPACE" ? "w-12 sm:w-20" : "w-8 sm:w-12"}`}
             >
               {key === "BACKSPACE" ? "←" : key}
             </button>

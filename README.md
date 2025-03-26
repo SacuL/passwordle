@@ -2,7 +2,7 @@
 
 > **Warning**: This is a joke project. Please don't use this for actual password recovery. Seriously. I mean it. Your security is not a game... except when it is! 😅
 
-![Passwordle Game Board](ss2.jpg)
+[![Passwordle Game Board](ss2.jpg)](https://sacul.github.io/passwordle/)
 
 ## What is Passwordle?
 
@@ -16,6 +16,8 @@ Key benefits:
 - Supports multiple password recovery strategies
 - Maintains security through rate limiting and attempt tracking
 
+### Try it at [Passwordle](https://sacul.github.io/passwordle/)!
+
 ## Features
 
 - 🎯 Wordle-style password guessing
@@ -25,7 +27,7 @@ Key benefits:
 - 🎲 6 attempts to guess your password
 - 🎭 Confetti celebration when you win!
 
-![Passwordle Login Page](ss1.jpg)
+[![Passwordle Login Page](ss1.jpg)](https://sacul.github.io/passwordle/)
 
 ## How to Play
 
